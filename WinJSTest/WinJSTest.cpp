@@ -30,7 +30,13 @@ int main()
 {
 	JOYCAPS joycaps;
 
-	if (joyGetDevCaps(JOYSTICKID1, &joycaps, sizeof(joycaps)) == JOYERR_NOERROR) {
+	// Grab the first available joystick
+	UINT_PTR  uJoyID = 0;
+	for (uJoyID=1; uJoyID<16; uJoyID++)
+		if (joyGetDevCaps(JOYSTICKID2, &joycaps, sizeof(joycaps)) == JOYERR_NOERROR)
+			break;
+
+	if (uJoyID < 16) {
 
 		while (true) {
 
@@ -39,7 +45,7 @@ int main()
 			JOYINFOEX joyState;
 			joyState.dwSize = sizeof(joyState);
 			joyState.dwFlags = JOY_RETURNALL | JOY_RETURNPOVCTS | JOY_RETURNCENTERED | JOY_USEDEADZONE;
-			joyGetPosEx(JOYSTICKID1, &joyState);
+			joyGetPosEx(JOYSTICKID2, &joyState);
 
 			printf("  X:%d Y:%d Z:%d   R:%d U:%d V:%d  b:%d\r",
 				joyState.dwXpos, joyState.dwYpos, joyState.dwZpos,
