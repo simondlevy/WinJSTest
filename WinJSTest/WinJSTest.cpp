@@ -32,7 +32,7 @@ int main()
 
 	// Grab the first available joystick
 	UINT_PTR  uJoyID = 0;
-	for (uJoyID=1; uJoyID<16; uJoyID++)
+	for (uJoyID=0; uJoyID<16; uJoyID++)
 		if (joyGetDevCaps(uJoyID, &joycaps, sizeof(joycaps)) == JOYERR_NOERROR)
 			break;
 
@@ -55,8 +55,9 @@ int main()
 	}
 
 	else {
+		printf("*** No device found ***\n");
 		while (true)
-			printf("*** No device found ***\n");
+			;
 	}
 
     return 0;
