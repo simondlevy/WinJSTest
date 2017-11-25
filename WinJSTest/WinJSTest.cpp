@@ -44,7 +44,7 @@ int main()
 
 			JOYINFOEX joyState;
 			joyState.dwSize = sizeof(joyState);
-			joyState.dwFlags = JOY_RETURNALL | JOY_RETURNPOVCTS | JOY_RETURNCENTERED | JOY_USEDEADZONE;
+			joyState.dwFlags = JOY_RETURNALL;
 			joyGetPosEx(uJoyID, &joyState);
 
 			printf("  X:%d Y:%d Z:%d   R:%d U:%d V:%d  b:%d\r",
