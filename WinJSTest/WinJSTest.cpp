@@ -40,7 +40,7 @@ int main()
 
 		while (true) {
 
-			printf("%d:%d \"%S\"", joycaps.wMid, joycaps.wPid, joycaps.szPname);
+			printf("%04x:%04x \"%S\"", joycaps.wMid, joycaps.wPid, joycaps.szPname);
 
 			JOYINFOEX joyState;
 			joyState.dwSize = sizeof(joyState);
