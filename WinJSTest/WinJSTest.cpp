@@ -47,7 +47,7 @@ int main()
 			joyState.dwFlags = JOY_RETURNALL;
 			joyGetPosEx(uJoyID, &joyState);
 
-			printf("  X:%d Y:%d Z:%d   R:%d U:%d V:%d  b:%d\r",
+			printf("  X:%d Y:%d Z:%d   R:%d U:%d V:%d  b:%02d\r",
 				joyState.dwXpos, joyState.dwYpos, joyState.dwZpos,
 				joyState.dwRpos, joyState.dwUpos, joyState.dwVpos,
 				joyState.dwButtons);
